@@ -1,0 +1,10 @@
+-- vim.diagnostic.config({
+--   signs = true,
+--   underline = true,
+--   update_in_insert = true,
+--   virtual_text = {
+--     source = "if_many",
+--     signs = true,
+--     severity_sort = true,
+--   }
+--  })
