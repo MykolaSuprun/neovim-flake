@@ -1,5 +1,12 @@
 { pkgs }:
 let
+  nixFiles2ConfigFiles = dir:
+    builtins.map (file:
+      pkgs.writeTextFile {
+        name = pkgs.lib.strings.removeSuffix ".nix" file;
+        text = import ./${dir}/${file} { inherit pkgs; };
+      }) (builtins.attrNames (builtins.readDir ./${dir}));
+
   scripts2ConfigFiles = dir:
     let
       configDir = pkgs.stdenv.mkDerivation {
@@ -21,6 +28,12 @@ let
   vim = scripts2ConfigFiles "vim";
   lua_config = scripts2ConfigFiles "lua-config";
   lua_plugins = scripts2ConfigFiles "lua-plugins";
+  luanix = nixFiles2ConfigFiles "luanix";
 
 in builtins.concatStringsSep "\n"
-(builtins.map (configs: sourceConfigFiles configs) [ vim lua_config lua_plugins ])
+(builtins.map (configs: sourceConfigFiles configs) [
+  vim
+  lua_config
+  lua_plugins
+  luanix
+])
