@@ -86,7 +86,10 @@
       overlays = [overlayFlakeInputs overlayMyNeovim];
     };
   in {
-    packages.x86_64-linux.default = neovim.packages.x86_64-linux.neovim;
+    packages.x86_64-linux = rec {
+      nvim = pkgs.myNeovim;
+      default = nvim;
+    };
     apps.x86_64-linux.default = {
       type = "app";
       program = "${pkgs.myNeovim}/bin/nvim";
