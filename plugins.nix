@@ -119,8 +119,9 @@ with pkgs.vimPlugins; [
   nvim-lint
   # better diagnostics
   trouble-nvim
-  # floating terminal
+  # Terminal integration
   FTerm-nvim
+  toggleterm-nvim
   # sqlite
   sqlite-lua
   # making macros easier to work with
