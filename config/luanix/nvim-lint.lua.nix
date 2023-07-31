@@ -11,7 +11,7 @@ require('lint').linters_by_ft = {
   markdown = {'markdownlint', 'vale' },
   nix = { 'nix', 'statix' },
   sh = { 'shellcheck' },
-  sql = { 'sqlfluff' },
+  -- sql = { 'sqlfluff' },
   vim = { 'vint' },
   -- yaml = { 'yamlling' },
 }
