@@ -101,6 +101,8 @@ with pkgs.vimPlugins; [
   # LSP
   nvim-lspconfig
   lsp-zero-nvim
+  # Better CSV support
+  rainbow-csv
   # formatting
   formatter-nvim
   # better buffer switching

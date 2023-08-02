@@ -31,6 +31,10 @@
       url = "github:chrisgrieser/nvim-recorder";
       flake = false;
     };
+    rainbow-csv-src = {
+      url = "github:cameron-wags/rainbow_csv.nvim";
+      flake = false;
+    };
     # diagnostic-languageserver-src = {
     #   url = "github:iamcco/diagnostic-languageserver";
     #   flake = false;
@@ -46,6 +50,7 @@
     nvim-cmp-buffer-lines-src,
     cmp-async-path-src,
     nvim-recorder-src,
+    rainbow-csv-src,
   }: let
     overlayFlakeInputs = prev: final: {
       neovim = neovim.packages.x86_64-linux.neovim;
@@ -70,6 +75,10 @@
           };
           nvim-recorder = import ./pkgs/vimPlugins/nvim-recorder.nix {
             src = nvim-recorder-src;
+            pkgs = prev;
+          };
+          rainbow-csv = import ./pkgs/vimPlugins/rainbow-csv.nix {
+            src = rainbow-csv-src;
             pkgs = prev;
           };
         };

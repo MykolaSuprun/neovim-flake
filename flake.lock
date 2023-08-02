@@ -103,6 +103,22 @@
         "type": "github"
       }
     },
+    "rainbow-csv-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1684378077,
+        "narHash": "sha256-KP6bDGKH8WM+Yy3yCroldDWxC8axKhA3xyqmZxxeDdo=",
+        "owner": "cameron-wags",
+        "repo": "rainbow_csv.nvim",
+        "rev": "5eadace1015ca08caa4f42cc18ae93ed190c12f6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cameron-wags",
+        "repo": "rainbow_csv.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "cmp-async-path-src": "cmp-async-path-src",
@@ -110,6 +126,7 @@
         "nixpkgs": "nixpkgs",
         "nvim-cmp-buffer-lines-src": "nvim-cmp-buffer-lines-src",
         "nvim-recorder-src": "nvim-recorder-src",
+        "rainbow-csv-src": "rainbow-csv-src",
         "sql-language-server-src": "sql-language-server-src",
         "telescope-recent-files-src": "telescope-recent-files-src",
         "yanky-nvim-src": "yanky-nvim-src"

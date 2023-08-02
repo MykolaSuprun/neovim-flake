@@ -74,7 +74,12 @@ nvt.setup({
 	sort_by = "case_sensitive",
 	disable_netrw = true,
 	view = {
-		width = 30,
+		width = {
+			min = 20,
+			max = 45,
+		},
+		number = true,
+		relativenumber = true,
 	},
 	renderer = {
 		group_empty = true,
