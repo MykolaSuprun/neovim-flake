@@ -31,9 +31,9 @@ vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increa
 -- Telescope file browser
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>er",
-	":Telescope file_browser<CR>",
-	{ noremap = true, desc = "File browser in [r]oot folder" }
+	"<leader>ef",
+	":Telescope file_browser theme=get_cursor<CR>",
+	{ noremap = true, desc = "File browser in root [f]older" }
 )
 
 -- Open file_browser with the path of the current buffer
@@ -56,13 +56,81 @@ vim.keymap.set("n", "<leader>/", function()
 end, { desc = "[/] Fuzzily search in current buffer" })
 
 -- LSP diagnostics for a current buffer
-vim.keymap.set("n", "<leader>ld", require("telescope.builtin").diagnostics, { desc = "[L]SP [D]iagnostics" })
+-- vim.keymap.set("n", "<leader>ld", require("telescope.builtin").diagnostics, { desc = "[L]SP [D]iagnostics" })
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fd",
+	":Telescope diagnostics bufnr=0 theme=get_ivy<CR>",
+	{ noremap = true, desc = "[f]ind buffer [d]iagnostics" }
+)
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fD",
+	":Telescope diagnostics<CR>",
+	{ noremap = true, desc = "[f]ind project [D]iagnostics" }
+)
+
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[F]ind [F]iles" })
 vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "[F]ind [H]elp" })
 vim.keymap.set("n", "<leader>fw", require("telescope.builtin").grep_string, { desc = "[F]ind current [W]ord" })
 vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "[F]ind by [G]rep" })
-vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, { desc = "[F]ind [D]iagnostics" })
 
+-- Telescope git
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>gb",
+	":Telescope git_branches theme=get_ivy<CR>",
+	{ noremap = true, desc = "[g]it [b]ranches" }
+)
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>gc",
+	":Telescope git_bcommits theme=get_ivy<CR>",
+	{ noremap = true, desc = "[g]it buffer [c]ommits" })
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>gC",
+	":Telescope git_commits theme=get_ivy<CR>",
+	{ noremap = true, desc = "[g]it [C]ommits" }
+)
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>gs",
+	":Telescope git_status<CR>",
+	{ noremap = true, desc = "[g]it [s]tatus" }
+)
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>gS",
+	":Telescope git_stash<CR>",
+	{ noremap = true, desc = "[g]it [S]tash" }
+)
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fj",
+	":Telescope jumplist theme=get_dropdown<CR>",
+	{ noremap = true, desc = "[f]ind [j]ump" }
+)
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fr",
+	":Telescope registers<CR>",
+	{ noremap = true, desc = "[f]ind [r]egister" }
+)
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fs",
+	":Telescope search_history theme get_dropdown<CR>",
+	{ noremap = true, desc = "[f]ind [s]earch" }
+)
 -- Telescope undo tree
 vim.keymap.set("n", "<leader>uh", "<cmd>Telescope undo<CR>", { desc = "[U]ndo [h]istory" })
 -- Undotre
@@ -173,3 +241,11 @@ vim.keymap.set("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", { desc = "Go
 vim.keymap.set("n", "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", { desc = "Go to Buffer 8" })
 vim.keymap.set("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", { desc = "Go to Buffer 9" })
 vim.keymap.set("n", "<leader>0", "<Cmd>BufferLineGoToBuffer 10<CR>", { desc = "Go to Buffer 10" })
+
+-- UI
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>Uc",
+	":Telescope colorscheme theme=get_ivy<CR>",
+	{ noremap = true, desc = "[U]i [c]olorscheme" }
+)

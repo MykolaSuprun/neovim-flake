@@ -15,5 +15,6 @@ wk.register({
 	u = "undo",
 	b = "buffer",
 	f = "find",
-	["<tab>"] = "tabs",
+	U = "ui",
+	["<tab >"] = "tabs",
 }, { prefix = "<leader>" })
