@@ -128,4 +128,6 @@ with pkgs.vimPlugins; [
   sqlite-lua
   # making macros easier to work with
   nvim-recorder
+  # tmux integration
+  vim-tmux-navigator
 ]
