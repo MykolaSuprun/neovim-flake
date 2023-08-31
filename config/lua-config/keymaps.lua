@@ -1,27 +1,29 @@
 -- Window actions
 vim.keymap.set("n", "<leader>wv", "<C-W>v", { desc = "Vertical right split" })
 vim.keymap.set("n", "<leader>ws", "<C-W>s", { desc = "Horizontal bottom split" })
-vim.keymap.set("n", "<leader>wc", "<C-W>d", { desc = "Delete window" })
+vim.keymap.set("n", "<leader>wc", "<C-W>c", { desc = "Close window" })
+vim.keymap.set("n", "<leader>wo", "<C-W>o", { desc = "Close other windows" })
 
 vim.keymap.set("n", "<leader>wh", "<C-W>h", { desc = "Go to the left window" })
 vim.keymap.set("n", "<leader>wl", "<C-W>l", { desc = "Go to the right window" })
 vim.keymap.set("n", "<leader>wj", "<C-W>j", { desc = "Go to the lower window" })
 vim.keymap.set("n", "<leader>wk", "<C-W>k", { desc = "Go to the upper window" })
 
-vim.cmd.tnoremap("<A-h> <C-\\><C-N><C-w>h")
-vim.cmd.tnoremap("<A-j> <C-\\><C-N><C-w>j")
-vim.cmd.tnoremap("<A-k> <C-\\><C-N><C-w>k")
-vim.cmd.tnoremap("<A-l> <C-\\><C-N><C-w>l")
+-- overriden with tmux integration
+-- vim.cmd.tnoremap("<A-h> <C-\\><C-N><C-w>h")
+-- vim.cmd.tnoremap("<A-j> <C-\\><C-N><C-w>j")
+-- vim.cmd.tnoremap("<A-k> <C-\\><C-N><C-w>k")
+-- vim.cmd.tnoremap("<A-l> <C-\\><C-N><C-w>l")
 
-vim.cmd.inoremap("<A-h> <C-\\><C-N><C-w>l")
-vim.cmd.inoremap("<A-j> <C-\\><C-N><C-w>l")
-vim.cmd.inoremap("<A-k> <C-\\><C-N><C-w>l")
-vim.cmd.inoremap("<A-l> <C-\\><C-N><C-w>l")
-
-vim.cmd.nnoremap("<A-h> <C-w>h")
-vim.cmd.nnoremap("<A-j> <C-w>j")
-vim.cmd.nnoremap("<A-k> <C-w>k")
-vim.cmd.nnoremap("<A-l> <C-w>l")
+-- vim.cmd.inoremap("<A-h> <C-\\><C-N><C-w>l")
+-- vim.cmd.inoremap("<A-j> <C-\\><C-N><C-w>l")
+-- vim.cmd.inoremap("<A-k> <C-\\><C-N><C-w>l")
+-- vim.cmd.inoremap("<A-l> <C-\\><C-N><C-w>l")
+--
+-- vim.cmd.nnoremap("<A-h> <C-w>h")
+-- vim.cmd.nnoremap("<A-j> <C-w>j")
+-- vim.cmd.nnoremap("<A-k> <C-w>k")
+-- vim.cmd.nnoremap("<A-l> <C-w>l")
 
 vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
@@ -175,6 +177,7 @@ vim.keymap.set("v", "<leader>Ps", '"+P>', { desc = "[P]aste from [s]ystem clipbo
 
 -- Show LspInfo
 vim.keymap.set("n", "<leader>li", vim.cmd.LspInfo, { desc = "Show [L]SP [i]nfo" })
+
 -- Formatter
 vim.keymap.set("n", "<leader>cf", "<cmd>FormatLock<CR>", { desc = "[C]ode [format]" })
 vim.keymap.set("n", "<leader>cF", "<cmd>FormatWriteLock<CR>", { desc = "[C]ode [format]" })
@@ -183,21 +186,7 @@ vim.keymap.set("n", "<leader>cF", "<cmd>FormatWriteLock<CR>", { desc = "[C]ode [
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
---bufferline
-vim.keymap.set("n", "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "Toggle [b]uffer [p]in" })
-vim.keymap.set("n", "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", { desc = "Delete non-pinned buffers" })
-
--- buffers
-vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
-vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
-vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>", { desc = "[B]uffer [d]elete" })
-vim.keymap.set("n", "<leader>bD", "<cmd>bd!<cr>", { desc = "[B]uffer [d]elete and discard changes" })
--- map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
--- map("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
--- map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
--- map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
--- map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
--- map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+-- tabline keymaps are in barbar-nvim
 
 -- tabs
 vim.keymap.set("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
@@ -231,16 +220,16 @@ end, { desc = "[G]o to [L]SP references" })
 vim.keymap.set("n", "<A-i>", '<CMD>lua require("FTerm").toggle()<CR>', { desc = "Toggle FTerm" })
 vim.keymap.set("t", "<A-i>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { desc = "Toggle FTerm" })
 
-vim.keymap.set("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { desc = "Go to Buffer 1" })
-vim.keymap.set("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { desc = "Go to Buffer 2" })
-vim.keymap.set("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", { desc = "Go to Buffer 3" })
-vim.keymap.set("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", { desc = "Go to Buffer 4" })
-vim.keymap.set("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", { desc = "Go to Buffer 5" })
-vim.keymap.set("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", { desc = "Go to Buffer 6" })
-vim.keymap.set("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", { desc = "Go to Buffer 7" })
-vim.keymap.set("n", "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", { desc = "Go to Buffer 8" })
-vim.keymap.set("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", { desc = "Go to Buffer 9" })
-vim.keymap.set("n", "<leader>0", "<Cmd>BufferLineGoToBuffer 10<CR>", { desc = "Go to Buffer 10" })
+-- vim.keymap.set("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { desc = "Go to Buffer 1" })
+-- vim.keymap.set("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { desc = "Go to Buffer 2" })
+-- vim.keymap.set("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", { desc = "Go to Buffer 3" })
+-- vim.keymap.set("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", { desc = "Go to Buffer 4" })
+-- vim.keymap.set("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", { desc = "Go to Buffer 5" })
+-- vim.keymap.set("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", { desc = "Go to Buffer 6" })
+-- vim.keymap.set("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", { desc = "Go to Buffer 7" })
+-- vim.keymap.set("n", "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", { desc = "Go to Buffer 8" })
+-- vim.keymap.set("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", { desc = "Go to Buffer 9" })
+-- vim.keymap.set("n", "<leader>0", "<Cmd>BufferLineGoToBuffer 10<CR>", { desc = "Go to Buffer 10" })
 
 -- UI
 vim.api.nvim_set_keymap(

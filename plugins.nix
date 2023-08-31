@@ -112,7 +112,8 @@ with pkgs.vimPlugins; [
   # surround plugin
   mini-nvim
   # tabline
-  bufferline-nvim
+  barbar-nvim
+  # bufferline-nvim
   # smart autopairs
   nvim-autopairs
   # better yanking
