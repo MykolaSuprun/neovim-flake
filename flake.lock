@@ -16,22 +16,6 @@
         "type": "github"
       }
     },
-    "dockerfile-language-server": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1685620350,
-        "narHash": "sha256-uwwwF1eMoSA2C5h56BBllTZW8zRHueNeVwhwtycrNfA=",
-        "owner": "rcjsuen",
-        "repo": "dockerfile-language-server-nodejs",
-        "rev": "cacb8350c127ffefda2e1332080765b458cd2e16",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rcjsuen",
-        "repo": "dockerfile-language-server-nodejs",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "locked": {
         "lastModified": 1667395993,
@@ -138,7 +122,6 @@
     "root": {
       "inputs": {
         "cmp-async-path-src": "cmp-async-path-src",
-        "dockerfile-language-server": "dockerfile-language-server",
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
         "nvim-cmp-buffer-lines-src": "nvim-cmp-buffer-lines-src",
