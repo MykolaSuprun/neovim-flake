@@ -1,7 +1,9 @@
 {
   description = "Neovim flake";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # last nixpkgs version before hackage-packages were marked broken
+    nixpkgs.url = "github:NixOS/nixpkgs/74e0320bb8cc902590be00a22b8845641333b799";
     neovim = {
       url = "github:neovim/neovim/stable?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";

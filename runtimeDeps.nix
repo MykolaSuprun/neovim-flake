@@ -9,7 +9,7 @@ with pkgs; [
   clang-tools
   cmake-language-server
   # docker
-  hadolint
+  # hadolint -- temporarily disabled due to issue with hackage-packages
   docker-compose-language-service
   # efm lsp
   # efm-langserver

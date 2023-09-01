@@ -4,7 +4,7 @@
 require('lint').linters_by_ft = {
   lua = {'selene' }, 
   python = {'ruff', 'pycodestyle', 'pydocstyle', 'bandit', 'vulture' },
-  dockerfile = {'hadolint'},
+  -- dockerfile = {'hadolint'},
   haslkell = {'hlint'},
   -- json = {},
   text = { 'vale', 'proselint' },
