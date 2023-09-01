@@ -9,7 +9,6 @@ wk.register({
 	w = "window",
 	e = "explorer",
 	g = "goto/git",
-	x = "trouble",
 	c = "code",
 	l = "LSP",
 	u = "undo",

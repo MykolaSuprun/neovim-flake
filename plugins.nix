@@ -12,6 +12,7 @@ with pkgs.vimPlugins; [
   telescope-file-browser-nvim
   telescope-undo-nvim
   telescope-media-files-nvim
+  fuzzy-nvim
   # file manager
   nvim-tree-lua
   # Git and github integration
@@ -33,12 +34,14 @@ with pkgs.vimPlugins; [
   luasnip
   cmp_luasnip
   friendly-snippets
-  cmp-buffer
+  # cmp-buffer
   nvim-cmp-buffer-lines
   cmp-calc
   cmp-nvim-lsp
-  cmp-async-path
   cmp-fuzzy-path
+  cmp-fuzzy-buffer
+  cmp-rg
+  # cmp-path
   # Useful plugin to show you pending keybinds.
   which-key-nvim
   # Configurable statusline
@@ -100,7 +103,7 @@ with pkgs.vimPlugins; [
   dressing-nvim
   # LSP
   nvim-lspconfig
-  lsp-zero-nvim
+  # lsp-zero-nvim
   # Better CSV support
   rainbow-csv
   # formatting
@@ -131,4 +134,6 @@ with pkgs.vimPlugins; [
   nvim-recorder
   # tmux integration
   vim-tmux-navigator
+  # refactoring
+  refactoring-nvim
 ]

@@ -10,8 +10,9 @@ with pkgs; [
   cmake-language-server
   # docker
   hadolint
-  # docker-compose-language-service
-  efm-langserver
+  docker-compose-language-service
+  # efm lsp
+  # efm-langserver
   # nix
   nixd
   nil
@@ -29,17 +30,20 @@ with pkgs; [
   python311Packages.pydocstyle
   python311Packages.bandit
   python311Packages.vulture
+  # ruff-lsp
   ruff
   yapf
   # haskell
   hlint
   stylish-haskell
+  # rust
+  rust-analyzer
   # text and markdown
-  languagetool
+  # languagetool
   vale
-  proselint
-  marksman
-  nodePackages.markdownlint-cli
+  # proselint
+  # marksman
+  # nodePackages.markdownlint-cli
   # shell
   shellcheck
   # sql

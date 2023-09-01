@@ -156,7 +156,7 @@ map("n", "<leader>bD", "<Cmd>BufferWipeout<CR>", { noremap = true, silent = true
 map("n", "<leader>j", "<Cmd>BufferPick<CR>", { noremap = true, silent = true, desc = "Jump to buffer" })
 -- Sort automatically by...
 map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', { noremap = true, silent = true, desc = "Sort by number" })
-map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', { noremap = true, silent = true, desc = "Sort by directory" })
+map('n', '<Space>bf', '<Cmd>BufferOrderByFolder<CR>', { noremap = true, silent = true, desc = "Sort by directory" })
 map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', { noremap = true, silent = true, desc = "Sort by language" })
 map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', { noremap = true, silent = true, desc = "Sort by window number" })
 -- vim.keymap.set("n", "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "Toggle [b]uffer [p]in" })
