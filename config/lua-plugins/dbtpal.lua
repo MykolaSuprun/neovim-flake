@@ -23,6 +23,7 @@ local dbt = require('dbtpal')
         -- vim.keymap.set('n', '<leader>drf', dbt.run)
         -- vim.keymap.set('n', '<leader>drp', dbt.run_all)
         -- vim.keymap.set('n', '<leader>dtf', dbt.test)
+        -- telescope picker seems to be broken
         -- vim.keymap.set('n', '<leader>dm', require('dbtpal.telescope').dbt_picker)
 
         -- Enable Telescope Extension

@@ -92,9 +92,6 @@ end, { desc = "[F]ind current [W]ord" })
 vim.keymap.set("n", "<leader>fg", function()
 	require("telescope.builtin").live_grep({ layout_strategy = getLayoutStrategy() })
 end, { desc = "[F]ind by [G]rep" })
-vim.keymap.set("n", "<leader>fm", function()
-	require('dbtpal.telescope').dbt_picker.live_grep({ layout_strategy = getLayoutStrategy() })
-end, { desc = "[F]ind dbt [m]odel" })
 
 -- Telescope git
 vim.api.nvim_set_keymap(
