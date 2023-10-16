@@ -37,6 +37,11 @@
       url = "github:cameron-wags/rainbow_csv.nvim";
       flake = false;
     };
+
+    dbtpal-src = {
+      url = "github:PedramNavid/dbtpal";
+      flake = false;
+    };
     # diagnostic-languageserver-src = {
     #   url = "github:iamcco/diagnostic-languageserver";
     #   flake = false;
@@ -53,6 +58,7 @@
     cmp-async-path-src,
     nvim-recorder-src,
     rainbow-csv-src,
+    dbtpal-src
   }: let
     overlayFlakeInputs = prev: final: {
       neovim = neovim.packages.x86_64-linux.neovim;
@@ -81,6 +87,10 @@
           };
           rainbow-csv = import ./pkgs/vimPlugins/rainbow-csv.nix {
             src = rainbow-csv-src;
+            pkgs = prev;
+          };
+          dbtpal = import ./pkgs/vimPlugins/dbtpal.nix {
+            src = dbtpal-src;
             pkgs = prev;
           };
         };

@@ -31,6 +31,15 @@ vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decreas
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- Telescope file browser
+--
+local getLayoutStrategy = function()
+	if vim.api.nvim_win_get_width(0) > vim.api.nvim_win_get_height(0) * 3 then
+		return "horizontal"
+	else
+		return "vertical"
+	end
+end
+
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>ef",
@@ -47,14 +56,15 @@ vim.api.nvim_set_keymap(
 )
 
 -- See `:help telescope.builtin`
-vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
-vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
+vim.keymap.set("n", "<leader>?", function()
+	require("telescope.builtin").oldfiles({ layout_strategy = getLayoutStrategy() })
+end, { desc = "[?] Find recently opened files" })
+vim.keymap.set("n", "<leader><space>", function()
+	require("telescope.builtin").buffers({ layout_strategy = getLayoutStrategy() })
+end, { desc = "[ ] Find existing buffers" })
 vim.keymap.set("n", "<leader>/", function()
 	-- You can pass additional configuration to telescope to change theme, layout, etc.
-	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-		winblend = 10,
-		previewer = false,
-	}))
+	require("telescope.builtin").current_buffer_fuzzy_find({ layout_strategy = getLayoutStrategy() })
 end, { desc = "[/] Fuzzily search in current buffer" })
 
 -- LSP diagnostics for a current buffer
@@ -66,17 +76,25 @@ vim.api.nvim_set_keymap(
 	{ noremap = true, desc = "[f]ind buffer [d]iagnostics" }
 )
 
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>fD",
-	":Telescope diagnostics<CR>",
-	{ noremap = true, desc = "[f]ind project [D]iagnostics" }
-)
+vim.keymap.set("n", "<leader>fD", function()
+	require("telescope.builtin").diagnostics({ layout_strategy = getLayoutStrategy() })
+end, { desc = "[f]ind project [D]iagnostics" })
 
-vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[F]ind [F]iles" })
-vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "[F]ind [H]elp" })
-vim.keymap.set("n", "<leader>fw", require("telescope.builtin").grep_string, { desc = "[F]ind current [W]ord" })
-vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "[F]ind by [G]rep" })
+vim.keymap.set("n", "<leader>ff", function()
+	require("telescope.builtin").find_files({ layout_strategy = getLayoutStrategy() })
+end, { desc = "[F]ind [F]iles" })
+vim.keymap.set("n", "<leader>fh", function()
+	require("telescope.builtin").help_tags({ layout_strategy = getLayoutStrategy() })
+end, { desc = "[F]ind [H]elp" })
+vim.keymap.set("n", "<leader>fw", function()
+	require("telescope.builtin").grep_string({ layout_strategy = getLayoutStrategy() })
+end, { desc = "[F]ind current [W]ord" })
+vim.keymap.set("n", "<leader>fg", function()
+	require("telescope.builtin").live_grep({ layout_strategy = getLayoutStrategy() })
+end, { desc = "[F]ind by [G]rep" })
+vim.keymap.set("n", "<leader>fm", function()
+	require('dbtpal.telescope').dbt_picker.live_grep({ layout_strategy = getLayoutStrategy() })
+end, { desc = "[F]ind dbt [m]odel" })
 
 -- Telescope git
 vim.api.nvim_set_keymap(
@@ -90,7 +108,8 @@ vim.api.nvim_set_keymap(
 	"n",
 	"<leader>gc",
 	":Telescope git_bcommits theme=get_ivy<CR>",
-	{ noremap = true, desc = "[g]it buffer [c]ommits" })
+	{ noremap = true, desc = "[g]it buffer [c]ommits" }
+)
 
 vim.api.nvim_set_keymap(
 	"n",
@@ -99,19 +118,13 @@ vim.api.nvim_set_keymap(
 	{ noremap = true, desc = "[g]it [C]ommits" }
 )
 
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>gs",
-	":Telescope git_status<CR>",
-	{ noremap = true, desc = "[g]it [s]tatus" }
-)
+vim.keymap.set("n", "<leader>gs", function()
+	require("telescope.builtin").git_status({ layout_strategy = getLayoutStrategy() })
+end, { desc = "[g]it [s]tatus" })
 
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>gS",
-	":Telescope git_stash<CR>",
-	{ noremap = true, desc = "[g]it [S]tash" }
-)
+vim.keymap.set("n", "<leader>gS", function()
+	require("telescope.builtin").git_stash({ layout_strategy = getLayoutStrategy() })
+end, { desc = "[g]it [S]tash" })
 
 vim.api.nvim_set_keymap(
 	"n",
@@ -120,12 +133,7 @@ vim.api.nvim_set_keymap(
 	{ noremap = true, desc = "[f]ind [j]ump" }
 )
 
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>fr",
-	":Telescope registers<CR>",
-	{ noremap = true, desc = "[f]ind [r]egister" }
-)
+vim.api.nvim_set_keymap("n", "<leader>fr", ":Telescope registers<CR>", { noremap = true, desc = "[f]ind [r]egister" })
 
 vim.api.nvim_set_keymap(
 	"n",

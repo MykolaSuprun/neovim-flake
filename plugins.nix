@@ -136,4 +136,8 @@ with pkgs.vimPlugins; [
   vim-tmux-navigator
   # refactoring
   refactoring-nvim
+  # leap to any place on screen 
+  leap-nvim
+  # better dbt support
+  dbtpal
 ]

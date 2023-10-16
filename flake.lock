@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "dbtpal-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1689982815,
+        "narHash": "sha256-tQU0On6e0Bv8pXDG3/PTx88jQ3e7KmisUYSp1c+djVM=",
+        "owner": "PedramNavid",
+        "repo": "dbtpal",
+        "rev": "4b884fd3f0542e280bdc3476022824aa5d17556d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PedramNavid",
+        "repo": "dbtpal",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1667395993,
@@ -122,6 +138,7 @@
     "root": {
       "inputs": {
         "cmp-async-path-src": "cmp-async-path-src",
+        "dbtpal-src": "dbtpal-src",
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
         "nvim-cmp-buffer-lines-src": "nvim-cmp-buffer-lines-src",
