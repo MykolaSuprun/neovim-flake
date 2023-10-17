@@ -1,4 +1,6 @@
-require('leap').add_default_mappings()
+require('leap')
 vim.keymap.set({'n', 'x', 'o'}, 'f', '<Plug>(leap-forward-to)')
 vim.keymap.set({'n', 'x', 'o'}, 'F', '<Plug>(leap-backward-to)')
-
+vim.keymap.set({'v', 'o'}, 's', '<Plug>(leap-forward-till)')
+vim.keymap.set({'v', 'o'}, 'S', '<Plug>(leap-backward-till)')
+vim.keymap.set({'n', 'x', 'o'}, 'gs', '<Plug>(leap-from-window)')
