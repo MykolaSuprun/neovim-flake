@@ -94,6 +94,7 @@ with pkgs.vimPlugins; [
   nvim-treesitter-parsers.commonlisp
   nvim-treesitter-parsers.comment
   nvim-treesitter-parsers.bash
+  nvim-treesitter-parsers.terraform
   # undotree
   undotree
   # better messages, popups and cmdline
@@ -140,4 +141,6 @@ with pkgs.vimPlugins; [
   leap-nvim
   # better dbt support
   dbtpal
+  # terraform
+  vim-terraform
 ]
